@@ -50,11 +50,11 @@ about_profile_image: images/profile.png
 about_content: |
   Hi, I'm Daniel! :D
 
-  I'm an IT guy from Austria who's quite into sports, food and cool drinks.
-  My job is to build and design elegant and functional IT systems and their environments.
-  I engage in connecting academic and professional communities.
+  I'm an IT guy from Austria who's quite into sports, food and cool drinks.<br>
+  My job is to build and design elegant and functional IT systems and their environments.<br>
+  I engage in connecting academic and professional communities.<br>
 
-  I'm skilled in some areas and I've learned and studied quite some stuff as well.
+  I'm skilled in some areas and I've learned and studied quite some stuff as well.<br>
   My current buzzwords are: <mark>k8s</mark> <mark>devops</mark> <mark>agile</mark> <mark>architecture</mark> <mark>automation</mark> <mark>integration</mark>
 
 content:
@@ -101,8 +101,8 @@ content:
         quote: >
           We accompany motivated people.
         description: | # this will include new lines to allow paragraphs
-          Classes in science, engineering, management.
-          Focused on industrial engineering.
+          Classes in science, engineering, management.<br>
+          Focused on industrial engineering.<br>
           Foreign semester at Tunghai University, Taichnug, Taiwan. 
       - layout: left
         title: Campus02 - university of applied sciences
@@ -111,7 +111,7 @@ content:
         # quote: >
         #   We accompany motivated people.
         description: | # this will include new lines to allow paragraphs
-          Classes in management, marketing, leadership, law and business development.
+          Classes in management, marketing, leadership, law and business development.<br>
           Focused on innovation management.
       - layout: left
         title: AIM - Austrian Institute of Management
@@ -120,20 +120,20 @@ content:
         # quote: >
         #   We accompany motivated people.
         description: | # this will include new lines to allow paragraphs
-          Classes in management, controlling, leadership, IT and enterprise architecture.
+          Classes in management, controlling, leadership, IT and enterprise architecture.<br>
           Focused on IT management.
 
-  - title: A Little More About Me
-    layout: text
-    content: | # this will include new lines to allow paragraphs
-      Alongside my interests in networks and software engineering some of my other interests and hobbies are:
-      - Rock climbing
-      - Gaming
-      - Knitting
-      - [Becoming a ninja](https://www.youtube.com/watch?v=vtg4o__aRMg)
+  # - title: A Little More About Me
+    # layout: text
+    # content: | # this will include new lines to allow paragraphs
+      # Alongside my interests in networks and software engineering some of my other interests and hobbies are:
+      # - Rock climbing
+      # - Gaming
+      # - Knitting
+      # - [Becoming a ninja](https://www.youtube.com/watch?v=vtg4o__aRMg)
 
-      Look at this cool image  
-      ![Trees](/images/landscape-trees.jpg "Trees")
+      # Look at this cool image  
+      # ![Trees](/images/landscape-trees.jpg "Trees")
 
 # Footer
 footer_show_references: true
