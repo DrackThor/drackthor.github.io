@@ -7,8 +7,8 @@ version: 2
 
 # Personal info
 name: Daniel Drack
-title: DevOps Engineer | Enterprise Architect | Community Organizer 
-email: daniel.drack@gmx.at
+title: Senior DevOps Engineer | Consultant | Community Organizer 
+email: daniel@drackthor.me
 # website: https://drackthor.github.io/
 
 # Dark Mode (true/false/never)
@@ -31,9 +31,9 @@ linkedin_username: daniel-drack-b2b160146
 
 # Additional icon links
 additional_links:
-- title: itsgoingto.be
+- title: DrackThor
   icon: fas fa-globe
-  url: https://drackthor.github.io/
+  url: https://www.drackthor.me
 # - title: another link
 #   icon: font awesome brand icon name (eg. fab fa-twitter) (https://fontawesome.com/icons?d=gallery&m=free)
 #   url: Link url (eg. https://google.com)
