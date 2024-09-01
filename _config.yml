@@ -136,7 +136,7 @@ content:
     layout: text # Type of content section (list/text)
     content: |
       - [2024-06-07] cloud-native software supply chain security: the hard truth @ Area41 [Zürich] \
-        -> [Video]() | [Slides](https://drackthor.me/assets/20240607_Area41.pdf)
+        -> [Video](https://www.youtube.com/watch?v=gkAr51q296o) | [Slides](https://drackthor.me/assets/20240607_Area41.pdf)
       - [2024-06-06] cloud-native software supply chain security: the hard truth @ DevWeek [Online] \
         -> [Video]() | [Slides](https://drackthor.me/assets/20240606_DevWeek.pdf)
       - [2024-02-03] Fundamental Truths about Cloud Native \w Thomas Schütz @ FH Burgenland Cloud Day 2024 \
