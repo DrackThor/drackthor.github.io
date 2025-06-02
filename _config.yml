@@ -135,6 +135,8 @@ content:
   - title: Speaker Track Record
     layout: text # Type of content section (list/text)
     content: |
+      - [2025-03-18] DevOps done right: RBAC @ Navigate Kongress
+        -> [Video](https://www.youtube.com/watch?v=HOT08CS2B-Q)
       - [2024-06-07] cloud-native software supply chain security: the hard truth @ Area41 [Zürich] \
         -> [Video](https://www.youtube.com/watch?v=gkAr51q296o) | [Slides](https://drackthor.me/assets/20240607_Area41.pdf)
       - [2024-06-06] cloud-native software supply chain security: the hard truth @ DevWeek [Online] \
