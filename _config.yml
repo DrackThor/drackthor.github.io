@@ -34,6 +34,9 @@ additional_links:
 - title: DrackThor
   icon: fas fa-globe
   url: https://drackthor.me
+- title: Credly
+  icon: fas fa-brain
+  url: https://www.credly.com/users/drackthor
 # - title: another link
 #   icon: font awesome brand icon name (eg. fab fa-twitter) (https://fontawesome.com/icons?d=gallery&m=free)
 #   url: Link url (eg. https://google.com)
