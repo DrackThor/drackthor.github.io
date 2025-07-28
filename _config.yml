@@ -135,6 +135,8 @@ content:
   - title: Speaker Track Record
     layout: text # Type of content section (list/text)
     content: |
+      - [2025-07-10] four years of building k8s platforms @ WeAreDevelopers [Berlin] \
+        -> [Video](https://youtu.be/D3e9VFCrD_8) | [Slides](https://drackthor.me/assets/250710_WeAreDevelopers.pdf)
       - [2025-03-18] DevOps done right: RBAC @ Navigate Kongress  \
         -> [Video](https://www.youtube.com/watch?v=HOT08CS2B-Q)
       - [2024-06-07] cloud-native software supply chain security: the hard truth @ Area41 [Zürich] \
