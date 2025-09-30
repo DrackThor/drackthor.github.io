@@ -138,6 +138,10 @@ content:
   - title: Speaker Track Record
     layout: text # Type of content section (list/text)
     content: |
+      - [2025-09-18] Are you Compliant @ Swiss Cloud Native Day [Bern] \
+        -> [Video](https://www.youtube.com/watch?v=5F8OZd6fpeg) | [Slides](https://drackthor.me/assets/250918_Bern_AreyouCompliant.pdf)
+      - [2025-09-13] A brief History of Cloud-Native: the early years @ DevOpsDays Ljubljana [Ljubljana] \
+        -> [Slides](https://drackthor.me/assets/250913_LJ_History_of_Cloud_Native.pdf)
       - [2025-07-10] four years of building k8s platforms @ WeAreDevelopers [Berlin] \
         -> [Video](https://youtu.be/D3e9VFCrD_8) | [Slides](https://drackthor.me/assets/250710_WeAreDevelopers.pdf)
       - [2025-03-18] DevOps done right: RBAC @ Navigate Kongress  \
@@ -146,6 +150,8 @@ content:
         -> [Video](https://www.youtube.com/watch?v=gkAr51q296o) | [Slides](https://drackthor.me/assets/20240607_Area41.pdf)
       - [2024-06-06] cloud-native software supply chain security: the hard truth @ DevWeek [Online] \
         -> [Video]() | [Slides](https://drackthor.me/assets/20240606_DevWeek.pdf)
+      - [2024-03-28] Implementing a Multi-Layer k8s Security System with SUSE NeuVector @ 30. CNCLinz [Linz] \
+        -> [Video](https://youtu.be/NaXmLnZ7R0U)
       - [2024-02-03] Fundamental Truths about Cloud Native \w Thomas Schütz @ FH Burgenland Cloud Day 2024 \
         -> [Video](https://youtu.be/KXmqC0UD1RA) | [Slides](https://cloud-day.fh-burgenland.at/wp-content/uploads/2024/02/Cloud_Talk_2.pdf)
       - [2023-09-26] Building a cloud native austria \w Thomas Schütz @ KCD Austria 2023 \
