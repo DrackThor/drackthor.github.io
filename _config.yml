@@ -138,6 +138,8 @@ content:
   - title: Speaker Track Record
     layout: text # Type of content section (list/text)
     content: |
+      - [2025-10-07] A Brief History of Cloud-Native: the later years @ Cloud Native Days Austria [Vienna] \
+        -> [Video](https://youtu.be/4Xw2rm5wlrc?si=lV8SGd0hp2FlmaCk) | [Slides](https://drackthor.me/assets/251007_Vienna_CNDA_History_of_Cloud_Native.pdf)
       - [2025-09-18] Are you Compliant @ Swiss Cloud Native Day [Bern] \
         -> [Video](https://www.youtube.com/watch?v=5F8OZd6fpeg) | [Slides](https://drackthor.me/assets/250918_Bern_AreyouCompliant.pdf)
       - [2025-09-13] A brief History of Cloud-Native: the early years @ DevOpsDays Ljubljana [Ljubljana] \
