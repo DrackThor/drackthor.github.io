@@ -138,7 +138,13 @@ content:
 
   - title: Speaker Track Record
     layout: text # Type of content section (list/text)
-    content: |
+    content: |      
+      - [2026-02-12] Linux (Pseudo) Filesystems @ Container Days London [London] \
+        -> [Slides](https://drackthor.me/assets/260212-containerdays-fs.pdf)
+      - [2026-02-11] Security as Code @ Container Days London [London] \
+        -> [Slides](https://drackthor.me/assets/260211-containerdays-policies-3456x1152.pdf)
+      - [2025-12-11] A tale of security, policies, code and reality @ Security & DevOps Meetup [Vienna] \
+        -> [Slides](https://drackthor.me/assets/251211_Wien_Meetup.pdf)
       - [2025-10-07] A Brief History of Cloud-Native: the later years @ Cloud Native Days Austria [Vienna] \
         -> [Video](https://youtu.be/4Xw2rm5wlrc?si=lV8SGd0hp2FlmaCk) | [Slides](https://drackthor.me/assets/251007_Vienna_CNDA_History_of_Cloud_Native.pdf)
       - [2025-09-18] Are you Compliant @ Swiss Cloud Native Day [Bern] \
@@ -150,11 +156,11 @@ content:
       - [2025-03-18] DevOps done right: RBAC @ Navigate Kongress  \
         -> [Video](https://www.youtube.com/watch?v=HOT08CS2B-Q)
       - [2024-06-07] cloud-native software supply chain security: the hard truth @ Area41 [Zürich] \
-        -> [Video](https://www.youtube.com/watch?v=gkAr51q296o) | [Slides](https://drackthor.me/assets/20240607_Area41.pdf)
+        -> [Video](https://www.youtube.com/watch?v=gkAr51q296o) | [Slides](https://drackthor.me/assets/240607_Area41.pdf)
       - [2024-06-06] cloud-native software supply chain security: the hard truth @ DevWeek [Online] \
-        -> [Video]() | [Slides](https://drackthor.me/assets/20240606_DevWeek.pdf)
+        -> [Video]() | [Slides](https://drackthor.me/assets/240606_DevWeek.pdf)
       - [2024-03-28] Implementing a Multi-Layer k8s Security System with SUSE NeuVector @ 30. CNCLinz [Linz] \
-        -> [Video](https://youtu.be/NaXmLnZ7R0U)
+        -> [Video](https://youtu.be/NaXmLnZ7R0U) | [Slides](https://drackthor.me/assets/240325-CNCF-Linz.pdf)
       - [2024-02-03] Fundamental Truths about Cloud Native \w Thomas Schütz @ FH Burgenland Cloud Day 2024 \
         -> [Video](https://youtu.be/KXmqC0UD1RA) | [Slides](https://cloud-day.fh-burgenland.at/wp-content/uploads/2024/02/Cloud_Talk_2.pdf)
       - [2023-09-26] Building a cloud native austria \w Thomas Schütz @ KCD Austria 2023 \
