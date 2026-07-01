@@ -1,0 +1,18 @@
+---
+// Plausible Analytics (privacy-friendly, cookieless).
+// Bundled module script → runs once on first load; autoCapturePageviews
+// hooks the History API, so astro:transitions (ClientRouter) navigations
+// are tracked without re-running init. Localhost is not tracked by default,
+// so dev/preview builds don't pollute stats.
+---
+
+<script>
+  import { init } from "@plausible-analytics/tracker";
+
+  init({
+    domain: "drackthor.me",
+    autoCapturePageviews: true,
+    outboundLinks: true,
+    fileDownloads: true,
+  });
+</script>
