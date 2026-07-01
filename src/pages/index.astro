@@ -3,12 +3,20 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import HorizontalCard from "../components/HorizontalCard.astro";
 import { getCollection } from "astro:content";
 import createSlug from "../lib/createSlug";
+import { talks } from "../data/talks";
 
 const posts = (await getCollection("blog")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
 
 const last_posts = posts.slice(0, 3);
+
+// Upcoming talks: dated today or later, soonest first.
+const today = new Date();
+today.setHours(0, 0, 0, 0);
+const upcomingTalks = talks
+  .filter((t) => new Date(t.date) >= today)
+  .sort((a, b) => a.date.localeCompare(b.date));
 ---
 
 <BaseLayout sideBarActiveItemID="home">
@@ -45,6 +53,42 @@ const last_posts = posts.slice(0, 3);
       <a href="/cv" class="btn btn-outline ml-5"> About / CV </a>
     </div>
   </div>
+
+  {
+    upcomingTalks.length > 0 && (
+      <div class="mb-8">
+        <div class="text-3xl w-full font-bold mb-2">Upcoming talks 🔜</div>
+        {upcomingTalks.map((t) => (
+          <>
+            <div class="py-3">
+              <div class="flex flex-col md:flex-row md:items-baseline md:justify-between gap-1">
+                <h2 class="text-lg font-bold">{t.title}</h2>
+                <span class="font-mono text-sm opacity-70 shrink-0 md:ml-4">
+                  {t.date}
+                </span>
+              </div>
+              <div class="text-sm opacity-80">
+                {t.event}
+                {t.location ? ` · ${t.location}` : ""}
+              </div>
+              {t.slides && (
+                <div class="mt-1 flex gap-2">
+                  <a
+                    href={t.slides}
+                    target="_blank"
+                    class="badge badge-outline"
+                  >
+                    Slides
+                  </a>
+                </div>
+              )}
+            </div>
+            <div class="divider my-0" />
+          </>
+        ))}
+      </div>
+    )
+  }
 
   <div>
     <div class="text-3xl w-full font-bold mb-2">Featured talks 🎤</div>
