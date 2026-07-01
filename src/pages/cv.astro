@@ -1,0 +1,121 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import TimeLineElement from "../components/cv/TimeLine.astro";
+---
+
+<BaseLayout title="About / CV" sideBarActiveItemID="cv">
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Profile</div>
+  </div>
+
+  <div class="mb-10 text-justify">
+    I build and secure the platforms modern software runs on. For 10+ years I've moved from
+    data-warehouse administration into DevOps and cloud-native engineering — today I consult teams
+    at FullStackS GmbH, having worked with 30+ customers across Europe on Kubernetes platforms,
+    automation, and software supply-chain & runtime security. I'm a CNCF Ambassador and Kubestronaut,
+    organize KCD Austria / Cloud Native Days and the Cloud Native Graz community, speak across Europe,
+    and lecture on cloud-native technologies at two Austrian universities of applied sciences.
+    Based in Graz, Austria.
+  </div>
+
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Experience</div>
+  </div>
+
+  <div class="time-line-container mb-10">
+    <TimeLineElement
+      title="Senior DevOps Engineer & Cloud-Native Consultant — FullStackS GmbH"
+      subtitle="June 2022 to Present · Graz, Austria"
+    >
+      Consult 30+ customers across DevOps, automation, Infrastructure as Code, and software
+      supply-chain & runtime security. Design and build self-service Kubernetes platforms and enable
+      customer teams to operate and extend them independently. Implement policy-as-code and security
+      guardrails (OPA, cnspec, admission controllers) spanning infrastructure, platform, and
+      application layers.
+    </TimeLineElement>
+    <TimeLineElement
+      title="IT Infrastructure Specialist — AVL List GmbH"
+      subtitle="January 2019 to June 2022 · Graz, Austria"
+    >
+      Co-built AVL's internal DevOps platform. Delivered automation and GitOps workflows with
+      Ansible, Kubernetes, and artifact management, establishing self-service infrastructure patterns
+      that reduced manual operations toil.
+    </TimeLineElement>
+    <TimeLineElement
+      title="Administrator & Information Architect — ARZ Allgemeines Rechenzentrum GmbH"
+      subtitle="March 2014 to December 2018 · Innsbruck, Austria"
+    >
+      Operated a central regulatory Data Warehouse for the finance sector. Administered ETL and BI
+      platforms, developed ETL jobs powering regulatory reporting, and owned information architecture
+      for compliance-critical data pipelines.
+    </TimeLineElement>
+  </div>
+
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Education</div>
+  </div>
+
+  <div class="time-line-container grid gap-4 mb-10">
+    <TimeLineElement
+      title="MBA IT Management"
+      subtitle="2021 to 2023 at AIM — Austrian Institute of Management"
+    >
+      Management, controlling, leadership, IT and enterprise architecture. Focused on IT management.
+    </TimeLineElement>
+    <TimeLineElement
+      title="MA Innovation Management"
+      subtitle="2019 to 2021 at Campus02 University of Applied Sciences, Graz"
+    >
+      Management, marketing, leadership, law and business development. Focused on innovation management.
+    </TimeLineElement>
+    <TimeLineElement
+      title="BSc Industrial Engineering"
+      subtitle="2015 to 2018 at MCI — Management Center Innsbruck"
+    >
+      Science, engineering and management. Focused on industrial engineering. Foreign semester at
+      Tunghai University, Taichung, Taiwan.
+    </TimeLineElement>
+  </div>
+
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Certifications</div>
+  </div>
+
+  <ul class="list-disc mx-6 mb-10 grid gap-2">
+    <li><a href="https://www.credly.com/users/drackthor" target="_blank">CNCF Ambassador (2025–2027) — The Linux Foundation</a></li>
+    <li>Kubestronaut — CNCF</li>
+    <li><a href="https://www.credly.com/users/drackthor" target="_blank">PCA: Prometheus Certified Associate — The Linux Foundation</a></li>
+    <li><a href="https://www.credly.com/users/drackthor" target="_blank">OTCA: OpenTelemetry Certified Associate — The Linux Foundation</a></li>
+    <li><a href="https://www.credly.com/users/drackthor" target="_blank">Certified in Cybersecurity (CC) — ISC2</a></li>
+    <li><a href="https://www.credly.com/users/drackthor" target="_blank">Professional Scrum Product Owner I (PSPO I) — Scrum.org</a></li>
+    <li><a href="https://www.credly.com/users/drackthor" target="_blank">Cloud Native Community Group Organizer (2024 & 2025) — The Linux Foundation</a></li>
+  </ul>
+
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Skills</div>
+  </div>
+
+  <ul class="list-disc md:columns-3 columns-2 mx-6">
+    <li>Kubernetes</li>
+    <li>DevOps</li>
+    <li>Cloud Native</li>
+    <li>Platform Engineering</li>
+    <li>Infrastructure as Code</li>
+    <li>Terraform / OpenTofu</li>
+    <li>GitOps (Argo CD / Flux)</li>
+    <li>Ansible</li>
+    <li>CI/CD</li>
+    <li>Supply Chain Security</li>
+    <li>Container Security</li>
+    <li>Runtime Security</li>
+    <li>Policy as Code (OPA / cnspec)</li>
+    <li>SBOM & Signing</li>
+    <li>Helm</li>
+    <li>Linux</li>
+    <li>Automation</li>
+    <li>Cloud Architecture</li>
+    <li>Public Speaking</li>
+    <li>Technical Teaching</li>
+    <li>Agile / Scrum</li>
+  </ul>
+</BaseLayout>
