@@ -1,4 +1,4 @@
-# Daniel Drack — Master Profile
+# Daniel Drack - Master Profile
 
 > Canonical source of truth for LinkedIn + website. Copy-paste ready.
 > Sources: `_config.yml`, [Sessionize](https://sessionize.com/drackthor/), user input.
@@ -31,19 +31,19 @@
 
 Pick one. Keyword-dense first, then the punchy alternatives.
 
-**A — keyword-optimized (recommended)**
+**A - keyword-optimized (recommended)**
 
 > Senior DevOps Engineer @ FullStackS | CNCF Ambassador | Kubernetes, Platform & Supply-Chain Security | KCD/Cloud Native Days Organizer | Speaker & Lecturer
 
-**B — value-first**
+**B - value-first**
 
 > I help teams build secure, self-service Kubernetes platforms | Senior DevOps Engineer @ FullStackS | CNCF Ambassador | Cloud-Native Speaker & Lecturer
 
-**C — short & bold**
+**C - short & bold**
 
 > Cloud-Native & DevOps Consultant | CNCF Ambassador | Kubernetes • Security • Platform Engineering | Speaker · Organizer · Lecturer
 
-**Why it works:** leads with searchable keywords (recruiters/clients search "DevOps", "Kubernetes", "CNCF", "Cloud Native"), signals authority (Ambassador, organizer, speaker), and fits mobile truncation — the important terms sit in the first ~120 chars.
+**Why it works:** leads with searchable keywords (recruiters/clients search "DevOps", "Kubernetes", "CNCF", "Cloud Native"), signals authority (Ambassador, organizer, speaker), and fits mobile truncation - the important terms sit in the first ~120 chars.
 
 ---
 
@@ -55,34 +55,34 @@ Pick one. Keyword-dense first, then the punchy alternatives.
 I build and secure the platforms modern software runs on.
 
 For 10+ years I've moved from data-warehouse administration into DevOps
-and cloud-native engineering — today I consult teams at FullStackS GmbH,
+and cloud-native engineering - today I consult teams at FullStackS GmbH,
 having worked with 30+ customers across Europe on Kubernetes platforms,
 automation, and software supply-chain & runtime security.
 
 What I do:
 • Design and build self-service Kubernetes platforms that let teams ship
   faster without trading away security or governance.
-• Bring security left AND right — SBOMs, signing/attestation, SCA/SAST,
+• Bring security left AND right - SBOMs, signing/attestation, SCA/SAST,
   container scanning, admission control (OPA, cnspec), and runtime defense.
 • Automate everything: Infrastructure as Code, GitOps, policy as code.
-• Teach and enable — I turn my customers' teams into people who can run
+• Teach and enable - I turn my customers' teams into people who can run
   and extend the platform themselves.
 
 Beyond the day job:
 • CNCF Ambassador and organizer of KCD Austria / Cloud Native Days and the
   Cloud Native Graz community.
-• Speaker — 20+ talks across Europe (Container Days, Area41, WeAreDevelopers,
+• Speaker - 20+ talks across Europe (Container Days, Area41, WeAreDevelopers,
   DevOpsDays, KCD). Sessionize "Most Active Speaker 2025", Kubestronaut.
 • Lecturer on cloud-native technologies at two Austrian universities of
   applied sciences.
 
 Background: BSc Industrial Engineering, MA Innovation Management, MBA IT
-Management — I connect the tech to the business case.
+Management - I connect the tech to the business case.
 
 Austrian, based in Graz. Into sports, food, drinks, and (almost) all things
 IT. Let's talk cloud native, platforms, or security.
 
-👉 Open to consulting engagements and speaking invitations — reach out.
+👉 Open to consulting engagements and speaking invitations - reach out.
 
 📫 daniel@drackthor.me · 🌐 drackthor.me
 ```
@@ -91,7 +91,7 @@ IT. Let's talk cloud native, platforms, or security.
 
 - Swap "10+ years" for your exact number if you want precision (career started ~2014 → ~12 yrs).
 - Add 1–2 hard metrics if you have them: "platforms serving N teams", "cut deploy time by X", "dozens of customers".
-- Keep emojis minimal — they aid scannability but don't overdo it.
+- Keep emojis minimal - they aid scannability but don't overdo it.
 
 ---
 
@@ -109,34 +109,34 @@ IT. Let's talk cloud native, platforms, or security.
 Ich baue und sichere die Plattformen, auf denen moderne Software läuft.
 
 Seit über 10 Jahren bin ich von der Data-Warehouse-Administration in die
-DevOps- und Cloud-Native-Welt gewechselt — heute berate ich bei der
+DevOps- und Cloud-Native-Welt gewechselt - heute berate ich bei der
 FullStackS GmbH Teams in ganz Europa und habe mit 30+ Kunden an
 Kubernetes-Plattformen, Automatisierung sowie Software-Supply-Chain- und
 Runtime-Security gearbeitet.
 
 Was ich tue:
 • Self-Service-Kubernetes-Plattformen entwerfen und bauen, mit denen Teams
-  schneller liefern — ohne Kompromisse bei Sicherheit und Governance.
-• Security nach links UND rechts bringen — SBOMs, Signierung/Attestation,
+  schneller liefern - ohne Kompromisse bei Sicherheit und Governance.
+• Security nach links UND rechts bringen - SBOMs, Signierung/Attestation,
   SCA/SAST, Container-Scanning, Admission Control (OPA, cnspec), Runtime-Schutz.
 • Alles automatisieren: Infrastructure as Code, GitOps, Policy as Code.
-• Lehren und befähigen — ich mache die Teams meiner Kunden fähig, die
+• Lehren und befähigen - ich mache die Teams meiner Kunden fähig, die
   Plattform selbst zu betreiben und zu erweitern.
 
 Neben dem Job:
 • CNCF Ambassador und Organisator von KCD Austria / Cloud Native Days sowie
   der Community Cloud Native Graz.
-• Speaker — 20+ Talks in ganz Europa (Container Days, Area41, WeAreDevelopers,
+• Speaker - 20+ Talks in ganz Europa (Container Days, Area41, WeAreDevelopers,
   DevOpsDays, KCD). Sessionize „Most Active Speaker 2025", Kubestronaut.
 • Lektor für Cloud-Native-Technologien an zwei österreichischen Fachhochschulen.
 
 Background: BSc Wirtschaftsingenieurwesen, MA Innovationsmanagement, MBA
-IT-Management — ich verbinde Technik mit dem Business Case.
+IT-Management - ich verbinde Technik mit dem Business Case.
 
 Österreicher, wohnhaft in Graz. Begeistert von Sport, Essen, Drinks und
 (fast) allem rund um IT. Sprich mich an zu Cloud Native, Plattformen oder Security.
 
-👉 Offen für Beratungs- und Speaking-Anfragen — melde dich gerne.
+👉 Offen für Beratungs- und Speaking-Anfragen - melde dich gerne.
 
 📫 daniel@drackthor.me · 🌐 drackthor.me
 ```
@@ -149,17 +149,17 @@ IT-Management — ich verbinde Technik mit dem Business Case.
 
 LinkedIn rewards outcome bullets over duty lists. Rewrite each role like this.
 
-### FullStackS GmbH — Senior DevOps Engineer
+### FullStackS GmbH - Senior DevOps Engineer
 
 _June 2022 – Present · Consulting_
 
 - Consulted **30+ customers/companies** across DevOps, automation, Infrastructure as Code, and software supply-chain & runtime security.
 - Design and build self-service Kubernetes platforms; enable customer teams to operate and extend them independently.
 - Implement policy-as-code and security guardrails (OPA, cnspec, admission controllers) spanning infra, platform, and application layers.
-- Teach and mentor customer engineers — knowledge transfer as a first-class deliverable.
+- Teach and mentor customer engineers - knowledge transfer as a first-class deliverable.
 - _(Optional: add platform scale + time/cost-saved numbers when available.)_
 
-### AVL List GmbH — IT Infrastructure Specialist
+### AVL List GmbH - IT Infrastructure Specialist
 
 _January 2019 – June 2022_
 
@@ -167,7 +167,7 @@ _January 2019 – June 2022_
 - Delivered automation and GitOps workflows with Ansible, Kubernetes, and artifact management.
 - Established self-service infrastructure patterns that reduced manual ops toil.
 
-### ARZ Allgemeines Rechenzentrum GmbH — Administrator & Information Architect
+### ARZ Allgemeines Rechenzentrum GmbH - Administrator & Information Architect
 
 _March 2014 – December 2018_
 
@@ -193,11 +193,11 @@ Kubernetes · DevOps · Cloud Native · Platform Engineering · Infrastructure a
 
 Showcase proof. Add as links with thumbnails:
 
-- 🎥 [A Brief History of Cloud-Native — Cloud Native Days Austria 2025](https://youtu.be/4Xw2rm5wlrc)
-- 🎥 [Four years of building k8s platforms — WeAreDevelopers 2025](https://youtu.be/D3e9VFCrD_8)
-- 🎥 [Cloud-native software supply chain security: the hard truth — Area41 2024](https://www.youtube.com/watch?v=gkAr51q296o)
-- 🎥 [Are you Compliant? — Swiss Cloud Native Day 2025](https://www.youtube.com/watch?v=5F8OZd6fpeg)
-- 🌐 [drackthor.me](https://drackthor.me) — talks, slides, profile
+- 🎥 [A Brief History of Cloud-Native - Cloud Native Days Austria 2025](https://youtu.be/4Xw2rm5wlrc)
+- 🎥 [Four years of building k8s platforms - WeAreDevelopers 2025](https://youtu.be/D3e9VFCrD_8)
+- 🎥 [Cloud-native software supply chain security: the hard truth - Area41 2024](https://www.youtube.com/watch?v=gkAr51q296o)
+- 🎥 [Are you Compliant? - Swiss Cloud Native Day 2025](https://www.youtube.com/watch?v=5F8OZd6fpeg)
+- 🌐 [drackthor.me](https://drackthor.me) - talks, slides, profile
 
 ---
 
@@ -205,7 +205,7 @@ Showcase proof. Add as links with thumbnails:
 
 | Talk                                                           | One-liner                                                                                      |
 | -------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| Cloud-Native Software Supply Chain Security: The Hard Truth    | Real-world adoption rates of SBOM, attestation, MFA & signing — from master's thesis research. |
+| Cloud-Native Software Supply Chain Security: The Hard Truth    | Real-world adoption rates of SBOM, attestation, MFA & signing - from master's thesis research. |
 | A Brief History of Cloud-Native                                | Mainframe → virtualization → containers, tying tech milestones to methodology & economics.     |
 | 4 Years of Building K8s Platforms: Lessons Learned             | Technical + organizational lessons from platform work across dozens of customers.              |
 | The Essentials of Cloud Native Software Security               | Code-to-runtime journey: SCA, SAST, container scanning, CI/CD, runtime, IaC.                   |
@@ -238,12 +238,12 @@ Full track record (20+ talks) lives in `_config.yml` → Speaker Track Record.
 - Title: **Senior DevOps Engineer** (used throughout).
 - Availability: **Open to speaking + consulting** (CTA added, set "Providing services" on LinkedIn).
 - Lead with **10+ years** experience.
-- **Both languages** — EN primary (§2) + DE variant (§2b).
+- **Both languages** - EN primary (§2) + DE variant (§2b).
 
 ## 8b. Still open (to sharpen further)
 
-1. **Deeper metrics** — platform scale (# teams/clusters served), deploy-time or cost reductions? Customer count (30+) now captured.
-2. **AVL-era metrics** — any numbers from the internal DevOps platform work?
+1. **Deeper metrics** - platform scale (# teams/clusters served), deploy-time or cost reductions? Customer count (30+) now captured.
+2. **AVL-era metrics** - any numbers from the internal DevOps platform work?
 
 ---
 
@@ -251,10 +251,10 @@ Full track record (20+ talks) lives in `_config.yml` → Speaker Track Record.
 
 > Order = LinkedIn priority. Feature the marquee tier; sales badges optional.
 
-**Marquee — feature these:**
-| Credential | Issuer | |---|---| | CNCF Ambassador (2025–2027) | The Linux Foundation | | Kubestronaut | CNCF | | PCA: Prometheus Certified Associate | The Linux Foundation | | OTCA: OpenTelemetry Certified Associate | The Linux Foundation | | Certified in Cybersecurity (CC) | ISC2 | | Professional Scrum Product Owner I (PSPO I) | Scrum.org | | Organizer — 2024 & 2025 Cloud Native Community Group | The Linux Foundation |
+**Marquee - feature these:**
+| Credential | Issuer | |---|---| | CNCF Ambassador (2025–2027) | The Linux Foundation | | Kubestronaut | CNCF | | PCA: Prometheus Certified Associate | The Linux Foundation | | OTCA: OpenTelemetry Certified Associate | The Linux Foundation | | Certified in Cybersecurity (CC) | ISC2 | | Professional Scrum Product Owner I (PSPO I) | Scrum.org | | Organizer - 2024 & 2025 Cloud Native Community Group | The Linux Foundation |
 
-**Vendor / sales badges (optional — list if relevant to consulting):**
+**Vendor / sales badges (optional - list if relevant to consulting):**
 HashiCorp Terraform Sales Foundation · Terraform Technical Sales Intermediate · Vault Sales Foundation · Vault Technical Sales Intermediate · Apptio Intermediate · Apptio Cloudability Technical Sales Intermediate · Apptio Sales Foundation · Cloudability Sales Foundation _(all issued via IBM)_
 
 > Link each to Credly. On LinkedIn, add the marquee tier to Licenses & Certifications; consider skipping/grouping the sales badges to keep signal high.

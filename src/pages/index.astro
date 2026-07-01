@@ -2,9 +2,11 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import HorizontalCard from "../components/HorizontalCard.astro";
 import { getCollection } from "astro:content";
-import createSlug from "../lib/createSlug"
+import createSlug from "../lib/createSlug";
 
-const posts = (await getCollection("blog")).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+const posts = (await getCollection("blog")).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
 
 const last_posts = posts.slice(0, 3);
 ---
@@ -13,21 +15,34 @@ const last_posts = posts.slice(0, 3);
   <div class="pb-12 mt-5">
     <div class="text-xl py-1">Hey there 👋</div>
     <div class="text-5xl font-bold">I'm Daniel Drack</div>
-    <div class="text-3xl py-3 font-bold">Senior DevOps Engineer & Cloud-Native Consultant</div>
+    <div class="text-3xl py-3 font-bold">
+      Consultant | Engineer | Educator | Ambassador
+    </div>
     <div class="py-2">
       <text class="text-lg">
-        I build and secure the platforms modern software runs on. Consultant at
-        <b>FullStackS GmbH</b>, <b>CNCF Ambassador</b> and <b>Kubestronaut</b> — working with 30+
-        customers across Europe on Kubernetes platforms, automation, and software supply-chain &
-        runtime security. I organize KCD Austria / Cloud Native Days and Cloud Native Graz, speak
-        across Europe, and lecture at two Austrian universities of applied sciences.
+        ... aka DrackThor 🚜<br /><br />
+
+        I'm a DevOps guy from Graz, Austria.<br />
+        @ <b>FullStackS</b> I'm a senior DevOps Consultant and Cloud Native Security
+        Evangelist. So far, I've been working with 30+ customers across Europe on
+        Kubernetes platforms, automation, and software supply-chain & runtime security,
+        in the past four years alone.<br /><br />
+        I'm also an eager community organizer, <b>CNCF Ambassador</b> and <b
+          >Kubestronaut</b
+        >. So besides my consulting gig I help to organize Cloud Native Days and
+        Cloud Native Graz, speak across Europe, and lecture at two Austrian
+        universities of applied sciences.
       </text>
     </div>
     <div class="mt-8">
-      <a class="btn" href="https://www.linkedin.com/in/drackthor/" target="_blank"> Let's connect!</a>
-      <a href="/cv" class="btn btn-outline ml-5">
-        About / CV
-      </a>
+      <a
+        class="btn"
+        href="https://www.linkedin.com/in/drackthor/"
+        target="_blank"
+      >
+        Let's connect!</a
+      >
+      <a href="/cv" class="btn btn-outline ml-5"> About / CV </a>
     </div>
   </div>
 
@@ -38,7 +53,7 @@ const last_posts = posts.slice(0, 3);
   <HorizontalCard
     title="A Brief History of Cloud-Native"
     img="/images/251007-cnda.png"
-    desc="From mainframes and virtualization to containers — tying technological milestones to methodology shifts and economics. Cloud Native Days Austria 2025."
+    desc="From mainframes and virtualization to containers - tying technological milestones to methodology shifts and economics. Cloud Native Days Austria 2025."
     url="https://youtu.be/4Xw2rm5wlrc"
     badge="VIDEO"
   />
@@ -54,7 +69,7 @@ const last_posts = posts.slice(0, 3);
   <HorizontalCard
     title="Cloud-native software supply chain security: the hard truth"
     img="/images/240607-area41.png"
-    desc="Real-world adoption rates of SBOM, attestation, MFA and signing — based on master's thesis research. Area41 2024, Zürich."
+    desc="Real-world adoption rates of SBOM, attestation, MFA and signing - based on master's thesis research. Area41 2024, Zürich."
     url="https://www.youtube.com/watch?v=gkAr51q296o"
     badge="VIDEO"
   />
@@ -73,7 +88,7 @@ const last_posts = posts.slice(0, 3);
           title={post.data.title}
           img={post.data.heroImage}
           desc={post.data.description}
-          url={"/blog/" + createSlug(post.data.title, post.slug)}
+          url={"/blog/" + createSlug(post.data.title, post.id)}
           target="_self"
           badge={post.data.badge}
         />

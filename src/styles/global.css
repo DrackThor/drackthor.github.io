@@ -1,3 +1,16 @@
+@import "tailwindcss";
+
+@plugin "@tailwindcss/typography";
+@plugin "daisyui" {
+  themes: night --default --prefersdark;
+}
+
+/* JetBrains Mono everywhere (loaded via @fontsource in BaseHead) */
+@theme {
+  --font-sans: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
 html,
 body {
   font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;

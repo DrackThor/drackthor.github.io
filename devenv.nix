@@ -19,7 +19,7 @@
   scripts.preview.exec = "npm run preview";
 
   enterShell = ''
-    echo "drackthor.github.io — Astro dev shell"
+    echo "drackthor.github.io - Astro dev shell"
     node --version
   '';
 
