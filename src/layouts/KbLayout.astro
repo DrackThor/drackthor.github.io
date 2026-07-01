@@ -1,0 +1,94 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+
+interface Props {
+  title: string;
+  description?: string;
+  category?: string;
+  tags?: string[];
+  draft?: boolean;
+  sourcePath?: string;
+}
+
+const {
+  title,
+  description,
+  category,
+  tags = [],
+  draft,
+  sourcePath,
+} = Astro.props;
+---
+
+<BaseLayout title={title} description={description}>
+  <main class="md:flex md:justify-center">
+    <article
+      class="prose prose-lg max-w-[800px] w-full prose-img:mx-auto prose-img:rounded-lg"
+    >
+      <div class="not-prose mb-4 flex flex-wrap items-center gap-2">
+        {category && <span class="badge badge-outline">{category}</span>}
+        {draft && <span class="badge badge-warning">DRAFT</span>}
+      </div>
+      <h1 class="mb-2">{title}</h1>
+      {
+        sourcePath && (
+          <p class="not-prose mb-6 font-mono text-xs opacity-50">
+            {sourcePath}
+          </p>
+        )
+      }
+      <slot />
+      {
+        tags.length > 0 && (
+          <div class="not-prose mt-10 flex flex-wrap gap-2">
+            {tags.map((t) => (
+              <span class="badge badge-ghost">#{t}</span>
+            ))}
+          </div>
+        )
+      }
+    </article>
+  </main>
+
+  <script>
+    async function renderMermaid() {
+      const blocks = document.querySelectorAll(
+        'pre[data-language="mermaid"], pre.mermaid, code.language-mermaid',
+      );
+      // No diagrams on this page → never load the (heavy) Mermaid bundle.
+      if (blocks.length === 0) return;
+
+      // Dynamic import: Mermaid ships as its own chunk, fetched only when a
+      // rendered article actually contains diagrams.
+      const { default: mermaid } = await import("mermaid");
+      mermaid.initialize({
+        startOnLoad: false,
+        theme: "dark",
+        // strict: sanitize diagram HTML output; no raw HTML / click handlers.
+        securityLevel: "strict",
+      });
+      let i = 0;
+      for (const el of blocks) {
+        const pre = el.tagName === "CODE" ? el.closest("pre") : el;
+        if (!pre) continue;
+        const code = (el.textContent || "").trim();
+        if (!code) continue;
+        try {
+          const { svg } = await mermaid.render(
+            `mmd-${Date.now()}-${i++}`,
+            code,
+          );
+          const div = document.createElement("div");
+          div.className = "mermaid-rendered not-prose my-6 flex justify-center";
+          div.innerHTML = svg;
+          pre.replaceWith(div);
+        } catch {
+          // leave the original code block on parse error
+        }
+      }
+    }
+
+    // Runs on first load and on every astro:transitions navigation.
+    document.addEventListener("astro:page-load", renderMermaid);
+  </script>
+</BaseLayout>

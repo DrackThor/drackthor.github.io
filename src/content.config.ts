@@ -24,6 +24,30 @@ const blogCollection = defineCollection({
   schema: blogSchema,
 });
 
+const kbSchema = z.object({
+  title: z.string(),
+  description: z.string().optional(),
+  category: z.string().optional(),
+  tags: z
+    .array(z.string())
+    .refine((items) => new Set(items).size === items.length, {
+      message: "tags must be unique",
+    })
+    .optional(),
+  // Unpublished by default. Flip to false to publish an article.
+  draft: z.boolean().default(true),
+  // Original mkdocs path, kept for provenance during review.
+  sourcePath: z.string().optional(),
+});
+
+export type KbSchema = z.infer<typeof kbSchema>;
+
+const kbCollection = defineCollection({
+  loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/kb" }),
+  schema: kbSchema,
+});
+
 export const collections = {
   blog: blogCollection,
+  kb: kbCollection,
 };

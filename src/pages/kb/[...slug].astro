@@ -1,0 +1,90 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import KbLayout from "../../layouts/KbLayout.astro";
+import { getCollection, render } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+
+// Drafts are excluded from production builds, included in dev for review.
+// NOTE: getStaticPaths runs isolated and can't see module-scope consts, so the
+// predicate is inlined here and below rather than shared via a variable.
+export async function getStaticPaths() {
+  const entries = await getCollection(
+    "kb",
+    ({ data }) => import.meta.env.DEV || !data.draft,
+  );
+
+  const articles = entries
+    .map((entry) => ({ slug: entry.id.replace(/\/?index$/, ""), entry }))
+    .filter(({ slug }) => slug.length > 0)
+    .map(({ slug, entry }) => ({ params: { slug }, props: { entry } }));
+
+  // The /kb listing is only emitted when there is something to list — so with
+  // no published articles the route (and its sitemap entry) does not exist.
+  const listing =
+    entries.length > 0
+      ? [{ params: { slug: undefined }, props: { entry: null } }]
+      : [];
+
+  return [...listing, ...articles];
+}
+
+const { entry } = Astro.props;
+
+let Content: Awaited<ReturnType<typeof render>>["Content"] | null = null;
+let categories: string[] = [];
+const groups: Record<string, CollectionEntry<"kb">[]> = {};
+
+if (entry) {
+  ({ Content } = await render(entry));
+} else {
+  const entries = await getCollection(
+    "kb",
+    ({ data }) => import.meta.env.DEV || !data.draft,
+  );
+  for (const e of entries) {
+    const cat = e.data.category || "Uncategorized";
+    (groups[cat] ??= []).push(e);
+  }
+  for (const k in groups) {
+    groups[k].sort((a, b) => a.data.title.localeCompare(b.data.title));
+  }
+  categories = Object.keys(groups).sort();
+}
+
+const slugOf = (id: string) => "/kb/" + id.replace(/\/?index$/, "");
+---
+
+{
+  entry && Content ? (
+    <KbLayout {...entry.data}>
+      <Content />
+    </KbLayout>
+  ) : (
+    <BaseLayout title="Knowledge Base" sideBarActiveItemID="kb">
+      <div class="mb-8">
+        <div class="text-3xl w-full font-bold">Knowledge Base 📚</div>
+        <p class="mt-2 text-lg">
+          Beginner-friendly notes on cloud-native tech, DevOps and modern
+          software development.
+        </p>
+      </div>
+      {categories.map((cat) => (
+        <section class="mb-8">
+          <h2 class="text-2xl font-bold mb-3">{cat}</h2>
+          <ul class="space-y-1">
+            {groups[cat].map((e) => (
+              <li class="flex items-baseline gap-2">
+                <a href={slugOf(e.id)} class="link link-hover text-lg">
+                  {e.data.title}
+                </a>
+                {e.data.draft && (
+                  <span class="badge badge-warning badge-sm">DRAFT</span>
+                )}
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))}
+    </BaseLayout>
+  )
+}

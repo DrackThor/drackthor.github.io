@@ -1,6 +1,17 @@
 ---
+import { getCollection } from "astro:content";
+
 const { sideBarActiveItemID } = Astro.props;
 const activeClass = "bg-base-300"; // For primary color replace with `active` class
+
+// Show the KB link only when there's something to see: any published article,
+// or during local dev (so drafts can be reviewed). Keeps KB hidden in prod
+// until the first article is published.
+const kbEntries = await getCollection(
+  "kb",
+  ({ data }) => import.meta.env.DEV || !data.draft,
+);
+const showKb = kbEntries.length > 0;
 ---
 
 <ul class="menu grow shrink menu-md overflow-y-auto">
@@ -8,6 +19,15 @@ const activeClass = "bg-base-300"; // For primary color replace with `active` cl
   <li><a class="py-3 text-base" id="cv" href="/cv">About / CV</a></li>
   <li><a class="py-3 text-base" id="talks" href="/talks">Talks</a></li>
   <li><a class="py-3 text-base" id="blog" href="/blog/">Blog</a></li>
+  {
+    showKb && (
+      <li>
+        <a class="py-3 text-base" id="kb" href="/kb/">
+          Knowledge Base
+        </a>
+      </li>
+    )
+  }
   <li>
     <a
       class="py-3 text-base"
