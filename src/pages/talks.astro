@@ -12,7 +12,8 @@ import { talks } from "../data/talks";
       Active Speaker 2025". Full profile on <a
         class="link"
         href="https://sessionize.com/drackthor/"
-        target="_blank">Sessionize</a
+        target="_blank"
+        rel="noopener noreferrer">Sessionize</a
       >.
     </p>
   </div>
@@ -34,12 +35,22 @@ import { talks } from "../data/talks";
             </div>
             <div class="mt-1 flex gap-2">
               {t.video && (
-                <a href={t.video} target="_blank" class="badge badge-secondary">
+                <a
+                  href={t.video}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="badge badge-secondary"
+                >
                   ▶ Video
                 </a>
               )}
               {t.slides && (
-                <a href={t.slides} target="_blank" class="badge badge-outline">
+                <a
+                  href={t.slides}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="badge badge-outline"
+                >
                   Slides
                 </a>
               )}
