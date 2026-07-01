@@ -139,6 +139,9 @@ content:
   - title: Speaker Track Record
     layout: text # Type of content section (list/text)
     content: |      
+      - [2026-07-09] Linux (Pseudo) Filesystems @ WeAreDevelopers [Berlin] \
+        -> [Slides](https://drackthor.me/assets/DRACK_DANIEL_260701.pdf)
+      - [2026-02-11] Security as Code @ Container Days London [London] \
       - [2026-02-12] Linux (Pseudo) Filesystems @ Container Days London [London] \
         -> [Slides](https://drackthor.me/assets/260212-containerdays-fs.pdf)
       - [2026-02-11] Security as Code @ Container Days London [London] \
