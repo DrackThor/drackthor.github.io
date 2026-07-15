@@ -3,7 +3,7 @@ title: "New site, fresh start"
 description: "Why I rebuilt drackthor.me on Astro - and what to expect here: cloud native, Kubernetes platforms, and security."
 pubDate: "Jul 01 2026"
 # heroImage: "/DanielWAD-klein.png"
-badge: "NEW"
+# badge: "NEW"
 tags: ["cloud-native", "meta"]
 ---
 
