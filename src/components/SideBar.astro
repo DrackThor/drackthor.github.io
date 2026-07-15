@@ -2,6 +2,7 @@
 import SideBarFooter from "./SideBarFooter.astro";
 import { Image } from "astro:assets";
 import SideBarMenu from "./SideBarMenu.astro";
+import danielAvatar from "../assets/images/DanielWAD-klein.png";
 const { sideBarActiveItemID } = Astro.props;
 ---
 
@@ -21,7 +22,7 @@ const { sideBarActiveItemID } = Astro.props;
               format="webp"
               width={300}
               height={300}
-              src="/DanielWAD-klein.png"
+              src={danielAvatar}
               alt="Daniel Drack"
             />
           </div>

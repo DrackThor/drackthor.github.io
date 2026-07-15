@@ -6,6 +6,10 @@ import "@fontsource/jetbrains-mono/500.css";
 import "@fontsource/jetbrains-mono/700.css";
 import "../styles/global.css";
 import Analytics from "./Analytics.astro";
+import { getImage } from "astro:assets";
+import danielOg from "../assets/images/DanielWAD-klein.png";
+
+const defaultOgImage = (await getImage({ src: danielOg, format: "webp" })).src;
 
 export interface Props {
   title: string;
@@ -17,7 +21,7 @@ export interface Props {
 const {
   title,
   description,
-  image = "/DanielWAD-klein.png",
+  image = defaultOgImage,
   ogType = "website",
 } = Astro.props;
 ---

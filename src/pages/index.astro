@@ -4,6 +4,9 @@ import HorizontalCard from "../components/HorizontalCard.astro";
 import { getCollection } from "astro:content";
 import createSlug from "../lib/createSlug";
 import { talks } from "../data/talks";
+import cndaImg from "../assets/images/251007-cnda.png";
+import wadImg from "../assets/images/250710-wad.jpeg";
+import area41Img from "../assets/images/240607-area41.png";
 
 const posts = (await getCollection("blog")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
@@ -98,7 +101,7 @@ const upcomingTalks = talks
 
   <HorizontalCard
     title="A Brief History of Cloud-Native"
-    img="/images/251007-cnda.png"
+    img={cndaImg}
     desc="From mainframes and virtualization to containers - tying technological milestones to methodology shifts and economics. Cloud Native Days Austria 2025."
     url="https://youtu.be/4Xw2rm5wlrc"
     badge="VIDEO"
@@ -106,7 +109,7 @@ const upcomingTalks = talks
   <div class="divider my-0"></div>
   <HorizontalCard
     title="Four years of building k8s platforms"
-    img="/images/250710-wad.jpeg"
+    img={wadImg}
     desc="Technical and organizational lessons from building Kubernetes platforms across dozens of customers. WeAreDevelopers 2025, Berlin."
     url="https://youtu.be/D3e9VFCrD_8"
     badge="VIDEO"
@@ -114,7 +117,7 @@ const upcomingTalks = talks
   <div class="divider my-0"></div>
   <HorizontalCard
     title="Cloud-native software supply chain security: the hard truth"
-    img="/images/240607-area41.png"
+    img={area41Img}
     desc="Real-world adoption rates of SBOM, attestation, MFA and signing - based on master's thesis research. Area41 2024, Zürich."
     url="https://www.youtube.com/watch?v=gkAr51q296o"
     badge="VIDEO"
