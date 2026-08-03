@@ -1,18 +1,21 @@
 ---
-// Plausible Analytics (privacy-friendly, cookieless).
-// Bundled module script → runs once on first load; autoCapturePageviews
-// hooks the History API, so astro:transitions (ClientRouter) navigations
-// are tracked without re-running init. Localhost is not tracked by default,
-// so dev/preview builds don't pollute stats.
+// GoatCounter Analytics (privacy-friendly, cookieless).
+// count.js records the initial pageview on load. astro:after-swap fires only
+// on ClientRouter navigations (never the first load), so subsequent
+// astro:transitions navigations are counted manually with no double-count.
+// GoatCounter ignores localhost by default, so dev/preview don't pollute stats.
 ---
 
-<script>
-  import { init } from "@plausible-analytics/tracker";
+<script
+  data-goatcounter="https://drackthor.goatcounter.com/count"
+  async
+  src="//gc.zgo.at/count.js"></script>
 
-  init({
-    domain: "drackthor.me",
-    autoCapturePageviews: true,
-    outboundLinks: true,
-    fileDownloads: true,
+<script>
+  document.addEventListener("astro:after-swap", () => {
+    // @ts-expect-error – injected by count.js
+    window.goatcounter?.count?.({
+      path: location.pathname + location.search + location.hash,
+    });
   });
 </script>

@@ -34,7 +34,7 @@ make help      # list all targets (default)
 | `src/data/talks.ts`                  | Talks data (shared by home & talks page)      |
 | `src/content/blog/`                  | Blog posts (Markdown/MDX)                     |
 | `src/content.config.ts`              | Content collections config                    |
-| `src/components/Analytics.astro`     | Plausible analytics loader                    |
+| `src/components/Analytics.astro`     | GoatCounter analytics loader                  |
 | `src/config.ts`                      | Site title & description                      |
 | `src/components/SideBarMenu.astro`   | Navigation                                    |
 | `src/components/SideBarFooter.astro` | Social links                                  |
