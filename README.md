@@ -41,6 +41,12 @@ make help      # list all targets (default)
 | `public/assets/`                     | Talk slides (PDF) - served at `/assets/*.pdf` |
 | `public/CNAME`                       | Custom domain                                 |
 
+## Analytics
+
+Traffic is tracked with [GoatCounter](https://www.goatcounter.com) (privacy-friendly, cookieless, no consent banner needed).
+Dashboard: [drackthor.goatcounter.com](https://drackthor.goatcounter.com).
+The loader lives in `src/components/Analytics.astro`; localhost is ignored by default, so dev and preview do not pollute stats.
+
 ## Deployment
 
 Pushing to `main` triggers `.github/workflows/deploy.yml`, which builds with [`withastro/action`](https://github.com/withastro/action) and deploys to GitHub Pages.
