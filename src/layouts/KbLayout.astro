@@ -2,6 +2,7 @@
 import BaseLayout from "./BaseLayout.astro";
 import KbSidebar from "../components/KbSidebar.astro";
 import KbToc from "../components/KbToc.astro";
+import ImageZoom from "../components/ImageZoom.astro";
 import { getCollection } from "astro:content";
 import { breadcrumbsFor, buildKbTree } from "../lib/kbTree";
 import type { MarkdownHeading } from "astro";
@@ -120,6 +121,8 @@ const crumbs = breadcrumbsFor(nav, currentPath);
       <KbToc headings={headings} />
     </aside>
   </div>
+
+  <ImageZoom />
 
   <script>
     async function renderMermaid() {

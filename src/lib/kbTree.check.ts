@@ -80,4 +80,32 @@ assert.equal(breadcrumbsFor(tree, "/kb/iam/authentication/oidc").length, 3);
 assert.deepEqual(breadcrumbsFor(tree, "/kb"), []);
 assert.deepEqual(breadcrumbsFor(tree, "/kb/nope/deeper"), []);
 
+// A numeric filename prefix orders siblings but never reaches the URL.
+const ordered = buildKbTree([
+  { id: "scm/index", title: "SCM" },
+  { id: "scm/02-branching", title: "Branching" },
+  { id: "scm/01-git", title: "Git" },
+  { id: "scm/10-mr-pr", title: "PRs" },
+  { id: "scm/03-naming", title: "Naming" },
+]);
+const scmOrdered = find(ordered, "scm");
+
+// Order follows the prefix, so 10 sorts after 03 rather than after 01.
+assert.deepEqual(
+  scmOrdered.children.map((n) => n.name),
+  ["git", "branching", "naming", "mr-pr"],
+);
+
+// Links carry the clean name, so reordering files never breaks a link.
+assert.deepEqual(
+  scmOrdered.children.map((n) => n.href),
+  ["/kb/scm/git", "/kb/scm/branching", "/kb/scm/naming", "/kb/scm/mr-pr"],
+);
+
+// Breadcrumbs resolve against the clean path too.
+assert.deepEqual(breadcrumbsFor(ordered, "/kb/scm/git"), [
+  { title: "SCM", href: "/kb/scm" },
+  { title: "Git", href: "/kb/scm/git" },
+]);
+
 console.log("kbTree: all checks passed");

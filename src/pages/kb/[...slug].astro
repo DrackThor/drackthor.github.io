@@ -13,8 +13,18 @@ export async function getStaticPaths() {
     ({ data }) => import.meta.env.DEV || !data.draft,
   );
 
+  // A numeric filename prefix ("01-git.md") only orders entries in a folder -
+  // it is stripped here so the URL stays stable when files are reordered.
+  // Must match stripOrder() in src/lib/kbTree.ts.
   const articles = entries
-    .map((entry) => ({ slug: entry.id.replace(/\/?index$/, ""), entry }))
+    .map((entry) => ({
+      slug: entry.id
+        .split("/")
+        .map((segment) => segment.replace(/^\d+[-_.]/, ""))
+        .join("/")
+        .replace(/\/?index$/, ""),
+      entry,
+    }))
     .filter(({ slug }) => slug.length > 0)
     .map(({ slug, entry }) => ({ params: { slug }, props: { entry } }));
 
