@@ -15,27 +15,43 @@ const showKb = kbEntries.length > 0;
 ---
 
 <ul class="menu grow shrink menu-md overflow-y-auto">
-  <li><a class="py-3 text-base" id="home" href="/">Home</a></li>
-  <li><a class="py-3 text-base" id="cv" href="/cv">About / CV</a></li>
-  <li><a class="py-3 text-base" id="talks" href="/talks">Talks</a></li>
-  <li><a class="py-3 text-base" id="blog" href="/blog/">Blog</a></li>
-  {
-    showKb && (
-      <li>
-        <a class="py-3 text-base" id="kb" href="/kb/">
-          Knowledge Base
-        </a>
-      </li>
-    )
-  }
+  <li>
+    <a class="py-3 text-base" id="home" href="/">
+      Home
+    </a>
+  </li>
+  <li>
+    <a class="py-3 text-base" id="cv" href="/cv">
+      About / CV
+    </a>
+  </li>
+  <li>
+    <a class="py-3 text-base" id="talks" href="/talks">
+      Talks
+    </a>
+  </li>
+  <li>
+    <a class="py-3 text-base" id="blog" href="/blog/">
+      Blog
+    </a>
+  </li>
+  {showKb && (
+    <li>
+      <a class="py-3 text-base" id="kb" href="/kb/">
+        Knowledge Base
+      </a>
+    </li>
+  )}
   <li>
     <a
       class="py-3 text-base"
       href="mailto:daniel@drackthor.me"
       target="_blank"
       rel="noopener noreferrer"
-      referrerpolicy="no-referrer-when-downgrade">Contact</a
+      referrerpolicy="no-referrer-when-downgrade"
     >
+      Contact
+    </a>
   </li>
 </ul>
 

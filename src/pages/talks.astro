@@ -9,56 +9,58 @@ import { talks } from "../data/talks";
     <p class="mt-2 text-lg">
       20+ talks across Europe on cloud native, Kubernetes platforms, and
       security - from meetups to international conferences. Sessionize "Most
-      Active Speaker 2025". Full profile on <a
+      Active Speaker 2025". Full profile on{" "}
+      <a
         class="link"
         href="https://sessionize.com/drackthor/"
         target="_blank"
-        rel="noopener noreferrer">Sessionize</a
-      >.
+        rel="noopener noreferrer"
+      >
+        Sessionize
+      </a>
+      .
     </p>
   </div>
 
   <div class="mt-8">
-    {
-      talks.map((t) => (
-        <>
-          <div class="py-3">
-            <div class="flex flex-col md:flex-row md:items-baseline md:justify-between gap-1">
-              <h2 class="text-lg font-bold">{t.title}</h2>
-              <span class="font-mono text-sm opacity-70 shrink-0 md:ml-4">
-                {t.date}
-              </span>
-            </div>
-            <div class="text-sm opacity-80">
-              {t.event}
-              {t.location ? ` · ${t.location}` : ""}
-            </div>
-            <div class="mt-1 flex gap-2">
-              {t.video && (
-                <a
-                  href={t.video}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="badge badge-secondary"
-                >
-                  ▶ Video
-                </a>
-              )}
-              {t.slides && (
-                <a
-                  href={t.slides}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="badge badge-outline"
-                >
-                  Slides
-                </a>
-              )}
-            </div>
+    {talks.map((t) => (
+      <>
+        <div class="py-3">
+          <div class="flex flex-col md:flex-row md:items-baseline md:justify-between gap-1">
+            <h2 class="text-lg font-bold">{t.title}</h2>
+            <span class="font-mono text-sm opacity-70 shrink-0 md:ml-4">
+              {t.date}
+            </span>
           </div>
-          <div class="divider my-0" />
-        </>
-      ))
-    }
+          <div class="text-sm opacity-80">
+            {t.event}
+            {t.location ? ` · ${t.location}` : ""}
+          </div>
+          <div class="mt-1 flex gap-2">
+            {t.video && (
+              <a
+                href={t.video}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="badge badge-secondary"
+              >
+                ▶ Video
+              </a>
+            )}
+            {t.slides && (
+              <a
+                href={t.slides}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="badge badge-outline"
+              >
+                Slides
+              </a>
+            )}
+          </div>
+        </div>
+        <div class="divider my-0" />
+      </>
+    ))}
   </div>
 </BaseLayout>

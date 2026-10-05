@@ -31,18 +31,20 @@ const upcomingTalks = talks
     </div>
     <div class="py-2">
       <text class="text-lg">
-        ... aka DrackThor 🚜<br /><br />
-
-        I'm a DevOps guy from Graz, Austria.<br />
-        @ <b>FullStackS</b> I'm a senior DevOps Consultant and Cloud Native Security
-        Evangelist. So far, I've been working with 30+ customers across Europe on
-        Kubernetes platforms, automation, and software supply-chain & runtime security,
-        in the past four years alone.<br /><br />
-        I'm also an eager community organizer, <b>CNCF Ambassador</b> and <b
-          >Kubestronaut</b
-        >. So besides my consulting gig I help to organize Cloud Native Days and
-        Cloud Native Graz, speak across Europe, and lecture at two Austrian
-        universities of applied sciences.
+        ... aka DrackThor 🚜
+        <br />
+        <br />
+        I'm a DevOps guy from Graz, Austria.
+        <br />@ <b>FullStackS</b> I'm a senior DevOps Consultant and Cloud
+        Native Security Evangelist. So far, I've been working with 30+ customers
+        across Europe on Kubernetes platforms, automation, and software
+        supply-chain & runtime security, in the past four years alone.
+        <br />
+        <br />
+        I'm also an eager community organizer, <b>CNCF Ambassador</b> and{" "}
+        <b>Kubestronaut</b>. So besides my consulting gig I help to organize
+        Cloud Native Days and Cloud Native Graz, speak across Europe, and
+        lecture at two Austrian universities of applied sciences.
       </text>
     </div>
     <div class="mt-8">
@@ -52,48 +54,49 @@ const upcomingTalks = talks
         target="_blank"
         rel="noopener noreferrer"
       >
-        Let's connect!</a
-      >
-      <a href="/cv" class="btn btn-outline ml-5"> About / CV </a>
+        Let's connect!
+      </a>
+      <a href="/cv" class="btn btn-outline ml-5">
+        {" "}
+        About / CV{" "}
+      </a>
     </div>
   </div>
 
-  {
-    upcomingTalks.length > 0 && (
-      <div class="mb-8">
-        <div class="text-3xl w-full font-bold mb-2">Upcoming talks 🔜</div>
-        {upcomingTalks.map((t) => (
-          <>
-            <div class="py-3">
-              <div class="flex flex-col md:flex-row md:items-baseline md:justify-between gap-1">
-                <h2 class="text-lg font-bold">{t.title}</h2>
-                <span class="font-mono text-sm opacity-70 shrink-0 md:ml-4">
-                  {t.date}
-                </span>
-              </div>
-              <div class="text-sm opacity-80">
-                {t.event}
-                {t.location ? ` · ${t.location}` : ""}
-              </div>
-              {t.slides && (
-                <div class="mt-1 flex gap-2">
-                  <a
-                    href={t.slides}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="badge badge-outline"
-                  >
-                    Slides
-                  </a>
-                </div>
-              )}
+  {upcomingTalks.length > 0 && (
+    <div class="mb-8">
+      <div class="text-3xl w-full font-bold mb-2">Upcoming talks 🔜</div>
+      {upcomingTalks.map((t) => (
+        <>
+          <div class="py-3">
+            <div class="flex flex-col md:flex-row md:items-baseline md:justify-between gap-1">
+              <h2 class="text-lg font-bold">{t.title}</h2>
+              <span class="font-mono text-sm opacity-70 shrink-0 md:ml-4">
+                {t.date}
+              </span>
             </div>
-            <div class="divider my-0" />
-          </>
-        ))}
-      </div>
-    )
-  }
+            <div class="text-sm opacity-80">
+              {t.event}
+              {t.location ? ` · ${t.location}` : ""}
+            </div>
+            {t.slides && (
+              <div class="mt-1 flex gap-2">
+                <a
+                  href={t.slides}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="badge badge-outline"
+                >
+                  Slides
+                </a>
+              </div>
+            )}
+          </div>
+          <div class="divider my-0" />
+        </>
+      ))}
+    </div>
+  )}
 
   <div>
     <div class="text-3xl w-full font-bold mb-2">Featured talks 🎤</div>
@@ -123,26 +126,26 @@ const upcomingTalks = talks
     badge="VIDEO"
   />
   <div class="mt-4">
-    <a href="/talks" class="btn btn-sm btn-outline">See all talks →</a>
+    <a href="/talks" class="btn btn-sm btn-outline">
+      See all talks →
+    </a>
   </div>
 
   <div>
     <div class="text-3xl w-full font-bold mb-5 mt-10">Latest from blog</div>
   </div>
 
-  {
-    last_posts.map((post) => (
-      <>
-        <HorizontalCard
-          title={post.data.title}
-          img={post.data.heroImage}
-          desc={post.data.description}
-          url={"/blog/" + createSlug(post.data.title, post.id)}
-          target="_self"
-          badge={post.data.badge}
-        />
-        <div class="divider my-0" />
-      </>
-    ))
-  }
+  {last_posts.map((post) => (
+    <>
+      <HorizontalCard
+        title={post.data.title}
+        img={post.data.heroImage}
+        desc={post.data.description}
+        url={"/blog/" + createSlug(post.data.title, post.id)}
+        target="_self"
+        badge={post.data.badge}
+      />
+      <div class="divider my-0" />
+    </>
+  ))}
 </BaseLayout>
