@@ -22,7 +22,7 @@ There are two main types of SCM systems:
 | **Centralized** | One main server holds the code; all developers commit to it directly.                                 | SVN, CVS, Perforce |
 | **Distributed** | Every developer has a full local copy of the repository. Changes are shared via push/pull operations. | Git, Mercurial     |
 
-> **📝 Note**
+> [!NOTE]
 >
 > Centralized SCM systems are pretty much outdated at this point.
 > The distributed one that won is Git, hosted on platforms like GitHub, GitLab and Bitbucket.

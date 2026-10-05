@@ -19,7 +19,7 @@ Creating a branch writes a new 40-character file.
 Deleting one removes it.
 This is why branching in Git is instant while the same operation in older systems (looking at you, SVN) was something you planned ahead for.
 
-> **📝 Note**
+> [!NOTE]
 >
 > Branching is cheap, _merging_ is where the work happens.
 > The strategies on this page are all basically answers to one question: "how do we keep merges boring?"
@@ -166,7 +166,7 @@ gitGraph
 **Good:** genuinely solves parallel release maintenance, versioned products, scheduled releases.
 **Bad:** a lot of branches, a lot of merging, and `develop` drifting from `main` is a recurring tax.
 
-> **⚠️ Warning**
+> [!WARNING]
 >
 > Git Flow gets cargo-culted onto web apps that deploy twelve times a day, where it adds pure overhead.
 > If you ship continuously and only ever support one version, you do not need `develop`.
@@ -259,7 +259,7 @@ Whichever you pick, the thing that actually determines whether it works:
 - **Automated tests.**
   Every strategy above degrades into "merge and pray" without them.
 
-> **⚠️ Warning**
+> [!WARNING]
 >
 > The strategy matters far less than the discipline.
 > A team doing boring GitHub Flow properly beats a team doing Git Flow badly, every single time.

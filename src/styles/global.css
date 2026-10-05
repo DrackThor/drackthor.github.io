@@ -19,3 +19,115 @@ body {
 .time-line-container > div:last-child .education__time > .education__line {
   display: none;
 }
+
+/* ---------------------------------------------------------------------------
+   Markdown alerts: "> [!NOTE]" and friends. src/lib/satteriAlerts.mjs tags the
+   blockquote with .md-alert/.md-alert-<type>; the literal "[!NOTE]" marker is
+   left as the first paragraph, which is hidden here and replaced by a title
+   row drawn from --alert-label. Global, because rendered markdown carries no
+   Astro scope id.
+   --------------------------------------------------------------------------- */
+
+.prose .md-alert {
+  --alert-color: var(--color-info);
+  --alert-label: "Note";
+  margin: 1.5rem 0;
+  padding: 0.9rem 1.1rem;
+  border: 1px solid color-mix(in oklab, var(--alert-color) 30%, transparent);
+  border-left: 3px solid var(--alert-color);
+  border-radius: 0.5rem;
+  background: color-mix(in oklab, var(--alert-color) 8%, transparent);
+  /* Tailwind Typography styles blockquotes as quotations. This is not one. */
+  font-style: normal;
+  quotes: none;
+}
+
+.prose .md-alert::before {
+  content: var(--alert-label);
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--alert-color);
+  font-weight: 700;
+  font-size: 0.95em;
+}
+
+/* The "[!NOTE]" marker paragraph the engine leaves behind. */
+.prose .md-alert > p:first-child {
+  display: none;
+}
+
+/* Typography adds decorative quote marks to blockquote paragraphs. */
+.prose .md-alert p::before,
+.prose .md-alert p::after {
+  content: none;
+}
+
+.prose .md-alert > p:first-child + * {
+  margin-top: 0;
+}
+
+.prose .md-alert > :last-child {
+  margin-bottom: 0;
+}
+
+.prose .md-alert-note {
+  --alert-color: var(--color-info);
+  --alert-label: "\2139  Note";
+}
+
+.prose .md-alert-tip {
+  --alert-color: var(--color-success);
+  --alert-label: "\2713  Tip";
+}
+
+.prose .md-alert-important {
+  --alert-color: var(--color-secondary);
+  --alert-label: "\2605  Important";
+}
+
+.prose .md-alert-warning {
+  --alert-color: var(--color-warning);
+  --alert-label: "\25B2  Warning";
+}
+
+.prose .md-alert-caution {
+  --alert-color: var(--color-error);
+  --alert-label: "\26A0  Caution";
+}
+
+/* ---------------------------------------------------------------------------
+   Tables: row hover, and a header that reads as a header.
+   --------------------------------------------------------------------------- */
+
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.prose thead th {
+  border-bottom: 2px solid
+    color-mix(in oklab, var(--color-base-content) 25%, transparent);
+  background: color-mix(in oklab, var(--color-base-content) 5%, transparent);
+  text-align: left;
+}
+
+.prose tbody tr {
+  transition:
+    background-color 0.12s ease,
+    box-shadow 0.12s ease;
+}
+
+.prose tbody tr:hover {
+  background: color-mix(in oklab, var(--color-primary) 10%, transparent);
+  /* Left marker without shifting the row, which a border would do. */
+  box-shadow: inset 3px 0 0 var(--color-primary);
+}
+
+.prose :where(th, td) {
+  padding: 0.55rem 0.8rem;
+}
+
+/* The zoom viewer sits above everything, so keep hover affordances out of it. */
+.kbzoom .md-alert {
+  box-shadow: none;
+}

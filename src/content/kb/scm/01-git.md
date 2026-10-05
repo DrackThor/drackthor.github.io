@@ -15,7 +15,7 @@ The "distributed" part is the bit people skip over, so let me stress it: unlike 
 You can commit, branch, diff and dig through the log on a train with no WiFi.
 Only pushing and pulling need the network.
 
-> **📝 Note**
+> [!NOTE]
 >
 > Git ≠ GitHub/GitLab/Bitbucket.  
 > Git is the tool.
@@ -65,7 +65,7 @@ ls -a .git
 
 **Main components of the .git folder:**
 
-- `objects/`:
+`objects/`
 
 Git's content database.
 Every version of every file, directory (tree) and commit is stored here as a blob, tree or commit object.
@@ -75,7 +75,7 @@ Each object is named by the SHA-1 hash of its contents, which is what guarantees
 - Trees store directory structures and filenames.
 - Commits link trees with metadata (author, message, parents).
 
-- `refs/`:
+`refs/`
 
 References (pointers) to specific commits:
 
@@ -86,7 +86,7 @@ References (pointers) to specific commits:
 Each ref is just a text file containing a commit hash.
 `cat .git/refs/heads/main` and see for yourself 😄
 
-- `HEAD`:
+`HEAD`
 
 A special file pointing at the currently checked-out branch (or straight at a commit, the famous "detached HEAD" state).
 Example content:
@@ -95,17 +95,17 @@ Example content:
 ref: refs/heads/main
 ```
 
-- `index`:
+`index`
 
 Also known as the staging area.
 A binary file tracking which changes are staged, meaning ready for the next commit.
 `git add` updates this file - that's the whole mystery.
 
-- `config`:
+`config`
 
 Plain text, repository-specific configuration: user name, email, remotes, merge behavior, etc. It complements the global settings in `~/.gitconfig`.
 
-- `logs/`:
+`logs/`
 
 Stores reflogs - a record of every update to branches and HEAD.
 This is your undo button after a reset or rebase goes sideways.
@@ -196,7 +196,7 @@ Feature branch + PR is the safe default for a small team - mostly because the PR
 
 Full breakdown of each model, with diagrams, at [Branching Strategies](/kb/scm/branching).
 
-> **⚠️ Warning**
+> [!WARNING]
 >
 > Avoid long-lived, drifting branches.
 > Rebase or merge frequently.

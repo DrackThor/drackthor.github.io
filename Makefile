@@ -22,6 +22,7 @@ check: ## Type-check + validate content/routes (astro check)
 
 test: check ## Type-check plus the library self-checks
 	node src/lib/kbTree.check.ts
+	node src/lib/satteriAlerts.check.mjs
 
 lint: ## Check formatting (prettier, no writes)
 	pnpm exec prettier --check .

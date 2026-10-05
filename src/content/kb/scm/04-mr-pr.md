@@ -96,7 +96,7 @@ This is the part worth knowing, because most teams use maybe a third of it.
 | **Linked issues**          | "Closes #42" in the description auto-closes the issue on merge.                                       |
 | **Linked pipelines**       | Build/test/scan results inline in the diff, including security scans and coverage deltas.             |
 
-> **📝 Note**
+> [!NOTE]
 >
 > Protected branch + required CI check is roughly 80% of the value.
 > Set those two first.
@@ -164,7 +164,7 @@ Use rebase when you want linear history _and_ trust everyone to write clean comm
   Not when it's perfect.
   Perfect never merges.
 
-> **⚠️ Warning**
+> [!WARNING]
 >
 > A PR that's been open for two weeks is not "under review", it's abandoned.
 > Either merge it, close it, or split it into something reviewable.

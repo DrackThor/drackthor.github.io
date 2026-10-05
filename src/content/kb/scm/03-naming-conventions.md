@@ -74,7 +74,7 @@ BREAKING CHANGE: the data field is now nested under result."
 Either one bumps **MAJOR**.
 The footer version is better when you want to explain _what_ broke - which you do, because that text lands in the changelog.
 
-> **📝 Note**
+> [!NOTE]
 >
 > The real reason to adopt this: tooling reads it.
 > `semantic-release`, `release-please` and `changesets` derive the next version number and generate the changelog straight from your commit messages.
@@ -150,7 +150,7 @@ git push origin v1.4.0
 git push origin --tags   # all of them
 ```
 
-> **📝 Note**
+> [!NOTE]
 >
 > Use **annotated** tags for releases.
 > Lightweight tags carry no author or date, and `git describe` treats them differently.
@@ -201,7 +201,7 @@ No Git rule here, only convention - but a consistent prefix lets you write branc
   A repo with 200 stale branches is a repo where nobody can find anything.
   Most platforms do it automatically on merge - turn that on.
 
-> **⚠️ Warning**
+> [!WARNING]
 >
 > You cannot have both a branch named `feature` and a branch named `feature/login`.
 > Git stores refs as files, so `refs/heads/feature` can't be a file and a directory at the same time.
