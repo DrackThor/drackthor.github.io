@@ -20,7 +20,8 @@ preview: ## Preview the production build locally
 check: ## Type-check + validate content/routes (astro check)
 	pnpm exec astro check
 
-test: check ## Alias for check (no runtime test suite yet)
+test: check ## Type-check plus the library self-checks
+	node src/lib/kbTree.check.ts
 
 lint: ## Check formatting (prettier, no writes)
 	pnpm exec prettier --check .

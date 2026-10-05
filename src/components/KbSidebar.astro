@@ -1,0 +1,140 @@
+---
+import type { TreeNode } from "../lib/kbTree";
+
+interface Props {
+  nodes: TreeNode[];
+  /** Current page path, used to mark the active entry. */
+  currentPath: string;
+}
+
+const { nodes, currentPath } = Astro.props;
+
+// Prefixed class names: Astro's scoped styles stop these leaking out, but they
+// do not stop daisyUI's global component classes leaking in.
+const label = (node: TreeNode) => node.title ?? node.name;
+---
+
+<ul class="kbnav-list">
+  {nodes.map((node) => {
+    const active = node.href === currentPath;
+    const isFolder = node.children.length > 0;
+
+    return (
+      <li class="kbnav-item">
+        {isFolder ? (
+          <details open>
+            <summary class="kbnav-row kbnav-folder">
+              <span class="kbnav-caret" aria-hidden="true" />
+              {node.href ? (
+                <a
+                  href={node.href}
+                  class:list={["kbnav-link", active && "kbnav-active"]}
+                >
+                  {label(node)}
+                </a>
+              ) : (
+                <span class="kbnav-label">{label(node)}</span>
+              )}
+            </summary>
+            <Astro.self nodes={node.children} currentPath={currentPath} />
+          </details>
+        ) : (
+          <a
+            href={node.href}
+            class:list={["kbnav-row", "kbnav-link", active && "kbnav-active"]}
+          >
+            {label(node)}
+          </a>
+        )}
+      </li>
+    );
+  })}
+</ul>
+
+<style>
+  .kbnav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Nested levels indent, with a hairline showing the nesting depth. */
+  .kbnav-list .kbnav-list {
+    margin-left: 0.55rem;
+    padding-left: 0.7rem;
+    border-left: 1px solid
+      color-mix(in oklab, var(--color-base-content) 15%, transparent);
+  }
+
+  .kbnav-row {
+    display: flex;
+    align-items: center;
+    gap: 0.15rem;
+    border-radius: var(--radius-field, 0.35rem);
+    padding: 0.25rem 0.45rem;
+    font-size: 0.875rem;
+    line-height: 1.35;
+    text-decoration: none;
+    transition: background-color 0.15s ease;
+  }
+
+  .kbnav-row:hover {
+    background-color: color-mix(
+      in oklab,
+      var(--color-base-content) 8%,
+      transparent
+    );
+  }
+
+  summary.kbnav-row {
+    cursor: pointer;
+    list-style: none;
+  }
+
+  summary.kbnav-row::marker,
+  summary.kbnav-row::-webkit-details-marker {
+    content: "";
+  }
+
+  .kbnav-caret::before {
+    content: "▸";
+    display: inline-block;
+    width: 1em;
+    opacity: 0.5;
+    transition: rotate 0.15s ease;
+  }
+
+  details[open] > summary .kbnav-caret::before {
+    rotate: 90deg;
+  }
+
+  .kbnav-folder {
+    font-weight: 600;
+  }
+
+  .kbnav-link {
+    color: inherit;
+    text-decoration: none;
+    opacity: 0.8;
+  }
+
+  .kbnav-link:hover {
+    opacity: 1;
+  }
+
+  /* A folder with no index.md is a grouping label, not a destination. */
+  .kbnav-label {
+    opacity: 0.55;
+  }
+
+  .kbnav-active {
+    color: var(--color-primary);
+    font-weight: 700;
+    opacity: 1;
+  }
+
+  /* Leaf links are rows themselves, so they need the indent folders get. */
+  a.kbnav-row {
+    padding-left: 1.45rem;
+  }
+</style>

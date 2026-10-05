@@ -1,5 +1,10 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
+import KbSidebar from "../components/KbSidebar.astro";
+import KbToc from "../components/KbToc.astro";
+import { getCollection } from "astro:content";
+import { breadcrumbsFor, buildKbTree } from "../lib/kbTree";
+import type { MarkdownHeading } from "astro";
 
 interface Props {
   title: string;
@@ -8,6 +13,7 @@ interface Props {
   tags?: string[];
   draft?: boolean;
   sourcePath?: string;
+  headings?: MarkdownHeading[];
 }
 
 const {
@@ -16,21 +22,90 @@ const {
   category,
   tags = [],
   draft,
-  sourcePath,
+  headings = [],
 } = Astro.props;
+
+// The nav rail lists every published article, so it is identical on each page.
+const entries = await getCollection("kb", ({ data }) => !data.draft);
+const nav = buildKbTree(
+  entries.map((e) => ({ id: e.id, title: e.data.title })),
+);
+
+// Trailing slashes vary by route, so normalise before comparing for "active".
+const currentPath = Astro.url.pathname.replace(/\/+$/, "") || "/kb";
+const crumbs = breadcrumbsFor(nav, currentPath);
 ---
 
-<BaseLayout title={title} description={description}>
-  <main class="md:flex md:justify-center">
-    <article class="prose prose-lg max-w-[800px] w-full prose-img:mx-auto prose-img:rounded-lg">
+<BaseLayout title={title} description={description} wide>
+  <div class="kb-shell">
+    <aside class="kb-rail kb-rail-left">
+      <p class="kb-rail-heading">
+        <a href="/kb" class="kb-rail-home">
+          Knowledge Base
+        </a>
+      </p>
+      <KbSidebar nodes={nav} currentPath={currentPath} />
+    </aside>
+
+    <article class="prose prose-lg w-full max-w-none prose-img:mx-auto prose-img:rounded-lg">
+      <nav class="not-prose kb-crumbs" aria-label="Breadcrumb">
+        <a href="/" class="kb-crumb-home" aria-label="Home">
+          <svg
+            viewBox="0 0 24 24"
+            width="16"
+            height="16"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M3 10.5 12 3l9 7.5" />
+            <path d="M5 9.5V21h14V9.5" />
+          </svg>
+        </a>
+        <span class="kb-crumb-sep" aria-hidden="true">
+          /
+        </span>
+        {crumbs.length === 0 ? (
+          <span class="kb-crumb-current" aria-current="page">
+            Knowledge Base
+          </span>
+        ) : (
+          <a href="/kb" class="kb-crumb-link">
+            Knowledge Base
+          </a>
+        )}
+        {crumbs.map((crumb, i) => {
+          const isLast = i === crumbs.length - 1;
+          return (
+            <>
+              <span class="kb-crumb-sep" aria-hidden="true">
+                /
+              </span>
+              {isLast || !crumb.href ? (
+                <span
+                  class:list={["kb-crumb-current", !isLast && "kb-crumb-plain"]}
+                  aria-current={isLast ? "page" : undefined}
+                >
+                  {crumb.title}
+                </span>
+              ) : (
+                <a href={crumb.href} class="kb-crumb-link">
+                  {crumb.title}
+                </a>
+              )}
+            </>
+          );
+        })}
+      </nav>
+
       <div class="not-prose mb-4 flex flex-wrap items-center gap-2">
         {category && <span class="badge badge-outline">{category}</span>}
         {draft && <span class="badge badge-warning">DRAFT</span>}
       </div>
-      <h1 class="mb-2">{title}</h1>
-      {sourcePath && (
-        <p class="not-prose mb-6 font-mono text-xs opacity-50">{sourcePath}</p>
-      )}
+      <h1 class="mb-4">{title}</h1>
       <slot />
       {tags.length > 0 && (
         <div class="not-prose mt-10 flex flex-wrap gap-2">
@@ -40,7 +115,11 @@ const {
         </div>
       )}
     </article>
-  </main>
+
+    <aside class="kb-rail kb-rail-right">
+      <KbToc headings={headings} />
+    </aside>
+  </div>
 
   <script>
     async function renderMermaid() {
@@ -84,3 +163,113 @@ const {
     document.addEventListener("astro:page-load", renderMermaid);
   </script>
 </BaseLayout>
+
+<style>
+  .kb-crumbs {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.4rem;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid
+      color-mix(in oklab, var(--color-base-content) 15%, transparent);
+    font-size: 0.8125rem;
+  }
+
+  .kb-crumb-home {
+    display: inline-flex;
+    color: inherit;
+    opacity: 0.7;
+  }
+
+  .kb-crumb-home:hover {
+    opacity: 1;
+  }
+
+  .kb-crumb-sep {
+    opacity: 0.35;
+  }
+
+  .kb-crumb-link {
+    color: inherit;
+    text-decoration: none;
+    opacity: 0.7;
+  }
+
+  .kb-crumb-link:hover {
+    opacity: 1;
+    text-decoration: underline;
+  }
+
+  .kb-crumb-current {
+    font-weight: 600;
+  }
+
+  /* An ancestor with no index.md: shown, but clearly not a destination. */
+  .kb-crumb-plain {
+    font-weight: 400;
+    opacity: 0.55;
+  }
+
+  /* Single column by default; the rails join as there is room for them. */
+  .kb-shell {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2rem;
+    align-items: start;
+  }
+
+  .kb-rail {
+    position: sticky;
+    top: 1.5rem;
+    max-height: calc(100vh - 3rem);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+
+  .kb-rail-heading {
+    margin: 0 0 0.6rem;
+    font-weight: 700;
+    font-size: 0.875rem;
+  }
+
+  .kb-rail-home {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .kb-rail-home:hover {
+    text-decoration: underline;
+  }
+
+  /* Nav rail joins first - it is the more useful of the two. */
+  @media (min-width: 1024px) {
+    .kb-shell {
+      grid-template-columns: 15rem minmax(0, 1fr);
+    }
+  }
+
+  /* ToC only once a third column genuinely fits. */
+  @media (min-width: 1280px) {
+    .kb-shell {
+      grid-template-columns: 15rem minmax(0, 1fr) 13rem;
+    }
+  }
+
+  @media (max-width: 1279px) {
+    .kb-rail-right {
+      display: none;
+    }
+  }
+
+  @media (max-width: 1023px) {
+    .kb-rail-left {
+      position: static;
+      max-height: none;
+      border-bottom: 1px solid
+        color-mix(in oklab, var(--color-base-content) 15%, transparent);
+      padding-bottom: 1rem;
+    }
+  }
+</style>

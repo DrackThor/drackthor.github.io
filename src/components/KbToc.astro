@@ -1,0 +1,130 @@
+---
+import type { MarkdownHeading } from "astro";
+
+interface Props {
+  headings: MarkdownHeading[];
+}
+
+const { headings } = Astro.props;
+
+// h1 is the page title (rendered by the layout), and h4+ makes the rail noisy.
+const items = headings.filter((h) => h.depth === 2 || h.depth === 3);
+---
+
+{items.length > 0 && (
+  <nav class="kbtoc" aria-label="Table of contents">
+    <p class="kbtoc-heading">Contents</p>
+    <ul class="kbtoc-list">
+      {items.map((h) => (
+        <li>
+          <a
+            href={`#${h.slug}`}
+            class:list={["kbtoc-link", h.depth === 3 && "kbtoc-sub"]}
+            data-toc-slug={h.slug}
+          >
+            {h.text}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+)}
+
+<script>
+  // Highlights the section currently in view. Re-armed on every view-transition
+  // navigation, since the DOM (and the observer's targets) are replaced.
+  function initToc() {
+    const links = Array.from(
+      document.querySelectorAll<HTMLAnchorElement>("[data-toc-slug]"),
+    );
+    if (links.length === 0) return;
+
+    const bySlug = new Map(links.map((l) => [l.dataset.tocSlug, l]));
+    const headings = links
+      .map((l) => document.getElementById(l.dataset.tocSlug!))
+      .filter((el): el is HTMLElement => el !== null);
+    if (headings.length === 0) return;
+
+    let active: HTMLAnchorElement | null = null;
+    const setActive = (slug: string | undefined) => {
+      const next = slug ? (bySlug.get(slug) ?? null) : null;
+      if (next === active) return;
+      active?.classList.remove("kbtoc-active");
+      next?.classList.add("kbtoc-active");
+      active = next;
+    };
+
+    const observer = new IntersectionObserver(
+      () => {
+        // Topmost heading that has scrolled past the trigger line wins; before
+        // the first one does, the first heading stays highlighted.
+        const trigger = 120;
+        let current = headings[0];
+        for (const h of headings) {
+          if (h.getBoundingClientRect().top <= trigger) current = h;
+        }
+        setActive(current?.id);
+      },
+      // A dense set of thresholds keeps the callback firing while scrolling.
+      { rootMargin: "0px", threshold: [0, 0.25, 0.5, 0.75, 1] },
+    );
+    for (const h of headings) observer.observe(h);
+
+    document.addEventListener(
+      "astro:before-swap",
+      () => observer.disconnect(),
+      { once: true },
+    );
+  }
+
+  document.addEventListener("astro:page-load", initToc);
+</script>
+
+<style>
+  .kbtoc {
+    font-size: 0.8125rem;
+  }
+
+  .kbtoc-heading {
+    margin: 0 0 0.5rem;
+    font-weight: 700;
+    font-size: 0.875rem;
+  }
+
+  .kbtoc-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-left: 1px solid
+      color-mix(in oklab, var(--color-base-content) 15%, transparent);
+  }
+
+  .kbtoc-link {
+    display: block;
+    padding: 0.25rem 0 0.25rem 0.7rem;
+    margin-left: -1px;
+    border-left: 2px solid transparent;
+    color: inherit;
+    text-decoration: none;
+    opacity: 0.7;
+    line-height: 1.35;
+    transition:
+      opacity 0.15s ease,
+      border-color 0.15s ease;
+  }
+
+  .kbtoc-link:hover {
+    opacity: 1;
+  }
+
+  .kbtoc-sub {
+    padding-left: 1.5rem;
+    font-size: 0.95em;
+  }
+
+  .kbtoc-link.kbtoc-active {
+    border-left-color: var(--color-primary);
+    color: var(--color-primary);
+    opacity: 1;
+  }
+</style>

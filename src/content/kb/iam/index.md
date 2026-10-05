@@ -65,7 +65,7 @@ timeline
 
 IAM interacts directly with existing topics in this repository:
 
-- **Source code management**: repository and branch permissions are IAM policy outcomes (`../scm/git.md`).
+- **Source code management**: repository and branch permissions are IAM policy outcomes (`../scm/01-git.md`).
 - **Infrastructure as Code**: IAM roles and mappings should be managed as code (`../iac/terraform.md`).
 - **CI/CD**: pipelines rely on non-human identities and short-lived credentials.
 
