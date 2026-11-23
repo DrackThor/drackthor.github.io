@@ -144,8 +144,8 @@ terraform {
 }
 
 provider "exoscale" {
-  key    = "EXO9a94805185b8e58bd27d0227"
-  secret = "lAkUIGH_LbGNCuOYbe2Rl840CV9xUGXOlDp2dJngJTU"
+  key    = "EXO9a94805185b8e5.."
+  secret = "changeme_LbGNCuOYbe2Rl840CV9xUGXOlDp2dJngJTU"
 }
 ```
 
